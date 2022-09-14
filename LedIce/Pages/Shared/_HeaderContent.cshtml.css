@@ -1,0 +1,20 @@
+﻿.header__nav {
+    width: 100%;
+    z-index: 10;
+}
+
+.header__wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: #333333f7;
+    width: 100%;
+    z-index: 100
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    align-items: center;
+}

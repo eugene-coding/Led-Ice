@@ -1,0 +1,61 @@
+﻿@page
+@model IndexModel
+
+<div class="slide slide_main">
+    <video class="slide__background" autoplay muted loop>
+        <source src="videos/main.webm" />
+    </video>
+
+    <div class="slide__content">
+        <h1 class="slide__title">@Model.Text["MainBlockTitle"]</h1>
+        <p class="slide__description">@Model.Text["MainBlockDescription"]</p>
+    </div>
+</div>
+
+@foreach (var slide in Model.Slides)
+{
+    <section class="slide" style="background-image: url(@slide.BackgroundImage)">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 slide__content">
+                    <h1 class="slide__title">@slide.Title</h1>
+                    <div>@Html.Raw(slide.Description)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide__overlay" style="background:@slide.OverlayColor"></div>
+    </section>
+}
+
+<section class="slide slide_white">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="slide__title">@Model.Text["ManagerBlockTitle"]</h2>
+
+                @Html.Raw(Model.Text["ManagerBlockDescription"])
+            </div>
+
+            <div class="offset-1 col text-end">
+                <partial name="_Managers" model="Model.Managers" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 slide__content">
+                <h2 class="slide__title">@Model.Text["AppBlockTitle"]</h2>
+
+                @Html.Raw(Model.Text["AppBlockDescription"])
+            </div>
+
+            <div class="offset-1 col-5">
+                <img src="/images/phone.webp" class="slide_app__image img-fluid" loading="lazy" />
+            </div>
+        </div>
+    </div>
+</section>

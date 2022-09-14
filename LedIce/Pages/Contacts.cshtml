@@ -1,0 +1,63 @@
+﻿@page
+@model LedIce.Pages.ContactsModel
+@{
+    Layout = "_ContainerLayout";
+}
+
+<div class="row row-cols-1 row-cols-md-2">
+    <div class="col">
+        <header>
+            <div class="header">
+                <h1>@Model.Text["HeadingTitle"]</h1>
+            </div>
+        </header>
+
+        <address>
+            <dl class="address-list row row-cols-1 row-cols-md-2">
+                <div class="col" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                    <dt>@Model.Text["Address"]</dt>
+                    <dd>@Model.Text["CityAbbreviated"] <span itemprop="addressLocality">@Model.Location.City</span>, @Model.Text["StreetAbbreviated"] <span itemprop="streetAddress">@Model.Location.Street</span></dd>
+                </div>
+
+                <div class="col">
+                    <dt>@Model.Text["WorkingHours"]</dt>
+
+                    <dd>
+                        <time datetime="@Model.Location.WorkingHoursForSchema" itemprop="openingHours">@Model.Location.WorkingHours</time>
+                    </dd>
+                </div>
+
+
+                <div class="col">
+                    <dt>@Model.Text["Phone"]</dt>
+
+                    <dd>
+                        <a href="tel:@Model.Location.Phone">
+                            <span itemprop="telephone">@Model.Location.Phone</span>
+                        </a>
+                    </dd>
+                </div>
+
+                <div class="col">
+                    <dt>@Model.Text["Email"]</dt>
+
+                    <dd>
+                        <a href="mailto:@Model.Location.Email">
+                            <span itemprop="email">@Model.Location.Email</span>
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+
+            @if (!string.IsNullOrWhiteSpace(Model.Location.Description))
+            {
+                <div>@Html.Raw(Model.Location.Description)</div>
+            }
+        </address>
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(Model.Location.Map))
+    {
+        <div class="col">@Html.Raw(Model.Location.Map)</div>
+    }
+</div>

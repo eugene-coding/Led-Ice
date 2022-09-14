@@ -1,0 +1,41 @@
+﻿.header {
+    margin-bottom: 30px;
+}
+
+.address-list, .address__column {
+    margin-bottom: 30px;
+}
+
+.address-list__item {
+    margin-bottom: 10px;
+}
+
+.address__list, .address-list__item_working-hours {
+    margin-bottom: 20px;
+}
+
+.phones, .emails {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.phones__phone, .emails__email {
+    margin-bottom: 10px;
+}
+
+.phone__description, .email__description {
+    display: block;
+    font-size: small;
+    font-weight: 100;
+    opacity: .8;
+}
+
+.phone__link, .email__link {
+    display: inline-block;
+    border-bottom: none;
+}
+
+    .phone__link .phone__value, .email__link .email__value {
+        border-bottom: var(--link-underline-border);
+    }

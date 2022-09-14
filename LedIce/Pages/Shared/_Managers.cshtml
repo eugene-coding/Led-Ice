@@ -1,0 +1,20 @@
+﻿@using LedIce.Data.DTO
+@model IEnumerable<ManagerDTO>
+
+@foreach (var manager in Model)
+{
+    <article class="manager">
+        <header>
+            <span class="manager__city">@manager.City</span>
+            <h3 class="manager__name">@manager.Name</h3>
+        </header>
+
+        <div class="manager__contact">
+            <a href="tel:@manager.Phone">@manager.Phone</a>
+        </div>
+
+        <div class="manager__contact">
+            <a href="mailto:@manager.Email">@manager.Email</a>
+        </div>
+    </article>
+}
