@@ -27,7 +27,6 @@
                     </dd>
                 </div>
 
-
                 <div class="col">
                     <dt>@Model.Text["Phone"]</dt>
 
@@ -54,6 +53,8 @@
                 <div>@Html.Raw(Model.Location.Description)</div>
             }
         </address>
+
+        <partial name="_Socials" />
     </div>
 
     @if (!string.IsNullOrWhiteSpace(Model.Location.Map))

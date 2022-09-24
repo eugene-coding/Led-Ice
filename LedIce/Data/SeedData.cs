@@ -1,5 +1,4 @@
 ﻿using LedIce.Data.Models;
-using LedIce.Pages;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -118,6 +117,39 @@ public static class SeedData
                     WorkingHours = "Пн-Пт: 09:00-18:00",
                     WorkingHoursForSchema = "Mo-Fr 09:00-18:00"
                 });
+        }
+
+        if (!context.Socials.Any())
+        {
+            context.Socials.AddRange(
+            new Social
+            {
+                Link = new Uri("https://vk.com"),
+                Icon = "vk",
+                SortOrder = 1,
+                Enabled = true
+            },
+            new Social
+            {
+                Link = new Uri("https://instagram.com"),
+                Icon = "instagram",
+                SortOrder = 3,
+                Enabled = true
+            },
+            new Social
+            {
+                Link = new Uri("https://youtube.com"),
+                Icon = "youtube",
+                SortOrder = 2,
+                Enabled = true
+            },
+            new Social
+            {
+                Link = new Uri("https://gaywebsite.com"),
+                Icon = "dadadadas",
+                SortOrder = 4,
+                Enabled = true
+            });
         }
 
         context.SaveChanges();

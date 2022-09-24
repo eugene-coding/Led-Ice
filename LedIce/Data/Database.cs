@@ -14,4 +14,5 @@ public sealed class Context : DbContext
     public DbSet<Location> Locations => Set<Location>();
     public DbSet<Slide> Slides => Set<Slide>();
     public DbSet<Manager> Managers => Set<Manager>();
+    public DbSet<Social> Socials => Set<Social>();
 }

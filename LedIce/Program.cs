@@ -37,6 +37,7 @@ services.AddScoped<IPageMetaService, PageMetaService>();
 services.AddScoped<ILocationService, LocationService>();
 services.AddScoped<ISlideService, SlideService>();
 services.AddScoped<IManagerService, ManagerService>();
+services.AddScoped<ISocialService, SocialService>();
 
 services.AddRouting(options =>
 {
