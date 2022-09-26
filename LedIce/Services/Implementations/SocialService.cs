@@ -19,7 +19,7 @@ internal sealed class SocialService : Service, ISocialService
                     orderby s.SortOrder
                     select new SocialDTO
                     {
-                        Icon = s.Icon,
+                        IconClass = s.IconClass,
                         Link = s.Link
                     };
 

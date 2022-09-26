@@ -9,7 +9,7 @@ public class Social
     public Uri Link { get; set; } = default!;
 
     [MaxLength(50)]
-    public string Icon { get; set; } = string.Empty;
+    public string IconClass { get; set; } = string.Empty;
 
     public int SortOrder { get; set; }
     public bool Enabled { get; set; }

@@ -125,21 +125,21 @@ public static class SeedData
             new Social
             {
                 Link = new Uri("https://vk.com"),
-                Icon = "vk",
+                IconClass = "vk",
                 SortOrder = 1,
                 Enabled = true
             },
             new Social
             {
                 Link = new Uri("https://instagram.com"),
-                Icon = "instagram",
+                IconClass = "instagram",
                 SortOrder = 3,
                 Enabled = true
             },
             new Social
             {
                 Link = new Uri("https://youtube.com"),
-                Icon = "youtube",
+                IconClass = "youtube",
                 SortOrder = 2,
                 Enabled = true
             });
