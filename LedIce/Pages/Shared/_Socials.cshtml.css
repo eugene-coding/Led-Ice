@@ -1,12 +1,12 @@
-﻿.social__link {
+﻿.socials {
+    margin-bottom: 20px;
+}
+
+.social__link {
     border: none;
     padding-right: 10px;
 }
 
     .social__link:hover {
-        opacity: 0.5;
+        opacity: .5;
     }
-
-.socials {
-    margin-bottom: 20px;
-}
