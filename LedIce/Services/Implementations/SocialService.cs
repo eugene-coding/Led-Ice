@@ -12,7 +12,7 @@ internal sealed class SocialService : Service, ISocialService
     {
     }
 
-    public async Task<IEnumerable<SocialDTO?>> GetSocialsAsync()
+    public async Task<IEnumerable<SocialDTO>> GetSocialsAsync()
     {
         var query = from s in Context.Socials
                     where s.Enabled

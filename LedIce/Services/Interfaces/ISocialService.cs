@@ -4,5 +4,5 @@ namespace LedIce.Services.Interfaces;
 
 public interface ISocialService
 {
-    Task<IEnumerable<SocialDTO?>> GetSocialsAsync();
+    Task<IEnumerable<SocialDTO>> GetSocialsAsync();
 }
