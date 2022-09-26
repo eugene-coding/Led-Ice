@@ -19,8 +19,9 @@ internal sealed class SocialService : Service, ISocialService
                     orderby s.SortOrder
                     select new SocialDTO
                     {
+                        Title = s.Title,
+                        Link = s.Link,
                         IconClass = s.IconClass,
-                        Link = s.Link
                     };
 
         var result = await query

@@ -124,22 +124,25 @@ public static class SeedData
             context.Socials.AddRange(
             new Social
             {
-                Link = new Uri("https://vk.com"),
+                Title = "ВКонтакте",
                 IconClass = "vk",
+                Link = new Uri("https://vk.com"),
                 SortOrder = 1,
                 Enabled = true
             },
             new Social
             {
-                Link = new Uri("https://instagram.com"),
+                Title = "Instagram",
                 IconClass = "instagram",
+                Link = new Uri("https://instagram.com"),
                 SortOrder = 3,
                 Enabled = true
             },
             new Social
             {
-                Link = new Uri("https://youtube.com"),
+                Title = "YouTube",
                 IconClass = "youtube",
+                Link = new Uri("https://youtube.com"),
                 SortOrder = 2,
                 Enabled = true
             });

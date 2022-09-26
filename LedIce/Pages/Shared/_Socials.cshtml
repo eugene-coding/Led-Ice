@@ -4,7 +4,7 @@
 <div class="socials">
     @foreach (var social in Model)
     {
-        <a class="social__link" href="@social.Link" target="_blank">
+        <a class="social__link" href="@social.Link" target="_blank" title="@social.Title">
             <i class="fa-brands fa-@social.IconClass fa-xl"></i>
         </a>
     }
