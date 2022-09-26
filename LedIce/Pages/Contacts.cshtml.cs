@@ -14,7 +14,7 @@ public sealed class ContactsModel : PageModel, ISeoable
     private readonly LinkGenerator _linkGenerator;
     private readonly IPageMetaService _pageMetaService;
     private readonly ILocationService _locationService;
-    private readonly ISocialService _socialNetworkService;
+    private readonly ISocialService _socialService;
 
     public ContactsModel(
         LinkGenerator linkGenerator, 
@@ -26,7 +26,7 @@ public sealed class ContactsModel : PageModel, ISeoable
         _linkGenerator = linkGenerator;
         _pageMetaService = pageMetaService;
         _locationService = service;
-        _socialNetworkService = socialService;
+        _socialService = socialService;
 
         Text = text;
         PageMeta = default!;
@@ -44,7 +44,7 @@ public sealed class ContactsModel : PageModel, ISeoable
     {
         PageMeta = await _pageMetaService.GetPageMetaAsync(this) ?? new();
         Location = await _locationService.GetFirstLocationAsync() ?? new();
-        Socials = await _socialNetworkService.GetSocialsAsync() ?? Enumerable.Empty<SocialDTO>();
+        Socials = await _socialService.GetSocialsAsync() ?? Enumerable.Empty<SocialDTO>();
 
         InitializeViewData();
     }
