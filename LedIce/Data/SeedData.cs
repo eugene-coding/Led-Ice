@@ -142,13 +142,6 @@ public static class SeedData
                 Icon = "youtube",
                 SortOrder = 2,
                 Enabled = true
-            },
-            new Social
-            {
-                Link = new Uri("https://gaywebsite.com"),
-                Icon = "dadadadas",
-                SortOrder = 4,
-                Enabled = true
             });
         }
 
