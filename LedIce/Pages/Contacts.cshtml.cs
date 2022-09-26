@@ -44,7 +44,7 @@ public sealed class ContactsModel : PageModel, ISeoable
     {
         PageMeta = await _pageMetaService.GetPageMetaAsync(this) ?? new();
         Location = await _locationService.GetFirstLocationAsync() ?? new();
-        Socials = await _socialNetworkService.GetSocialNetworksAsync() ?? Enumerable.Empty<SocialDTO>();
+        Socials = await _socialNetworkService.GetSocialsAsync() ?? Enumerable.Empty<SocialDTO>();
 
         InitializeViewData();
     }
