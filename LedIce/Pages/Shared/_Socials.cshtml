@@ -1,8 +1,11 @@
-﻿<div class="socials">
-    @foreach (var social in Model.Socials)
+﻿@using LedIce.Data.DTO
+@model IEnumerable<SocialDTO>
+
+<div class="socials">
+    @foreach (var social in Model)
     {
-            <a class="social__link" href="@social.Link" target="_blank">
-                <i class="fa-brands fa-@social.Icon fa-xl"></i>
-            </a>
+        <a class="social__link" href="@social.Link" target="_blank">
+            <i class="fa-brands fa-@social.IconClass fa-xl"></i>
+        </a>
     }
 </div>
