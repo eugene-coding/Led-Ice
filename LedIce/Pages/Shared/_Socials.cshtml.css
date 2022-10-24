@@ -1,10 +1,10 @@
 ﻿.socials {
-    margin-bottom: 20px;
+    margin-bottom: 0 -5px 20px -5px;
 }
 
 .social__link {
     border: none;
-    padding-right: 10px;
+    margin: 0 5px;
 }
 
     .social__link:hover {
