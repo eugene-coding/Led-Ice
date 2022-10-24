@@ -46,12 +46,14 @@ services.AddRouting(options =>
 
 var app = builder.Build();
 
+#if DEBUG
 using (var scope = app.Services.CreateScope())
 {
     var serviceProvider = scope.ServiceProvider;
 
     SeedData.Initialize(serviceProvider);
 }
+#endif
 
 if (!app.Environment.IsDevelopment())
 {
