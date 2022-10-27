@@ -11,12 +11,12 @@ public sealed class ManagerService : Service
     {
     }
 
-    public async Task<IEnumerable<ManagerDTO>> GetManagersAsync()
+    public async Task<IEnumerable<Manager>> GetManagersAsync()
     {
         var query = from m in Context.Managers
                     where m.Enabled
                     orderby m.SortOrder
-                    select new ManagerDTO
+                    select new Manager
                     {
                         City = m.City,
                         Name = m.Name,

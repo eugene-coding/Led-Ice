@@ -1,6 +1,6 @@
 ﻿namespace LedIce.Data.DTO;
 
-public class ManagerDTO
+public class Manager
 {
     public string City { get; set; } = string.Empty;
     public string Name { get; set; } = string.Empty;

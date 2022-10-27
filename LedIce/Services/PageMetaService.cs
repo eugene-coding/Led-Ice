@@ -12,11 +12,11 @@ public sealed class PageMetaService : Service
     {
     }
 
-    public async Task<PageMetaDTO?> GetPageMetaAsync(ISeoable page)
+    public async Task<PageMeta?> GetPageMetaAsync(ISeoable page)
     {
         var query = from p in Context.PageMetas
                     where p.Seo == page.Seo
-                    select new PageMetaDTO
+                    select new PageMeta
                     {
                         Title = p.Title,
                         Description = p.Description,

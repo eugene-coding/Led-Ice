@@ -1,6 +1,6 @@
 ﻿namespace LedIce.Data.DTO;
 
-public class SlideDTO
+public class Slide
 {
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;

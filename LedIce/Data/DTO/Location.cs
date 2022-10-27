@@ -1,6 +1,6 @@
 ﻿namespace LedIce.Data.DTO;
 
-public class LocationDTO
+public class Location
 {
     public string City { get; set; } = string.Empty;
     public string Street { get; set; } = string.Empty;

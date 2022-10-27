@@ -11,12 +11,12 @@ public sealed class SlideService : Service
     {
     }
 
-    public async Task<IEnumerable<SlideDTO>> GetSlidesAsync()
+    public async Task<IEnumerable<Slide>> GetSlidesAsync()
     {
         var query = from s in Context.Slides
                     where s.Enabled
                     orderby s.SortOrder
-                    select new SlideDTO
+                    select new Slide
                     {
                         Title = s.Title,
                         Description = s.Description,

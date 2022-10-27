@@ -11,12 +11,12 @@ public sealed class SocialService : Service
     {
     }
 
-    public async Task<IEnumerable<SocialDTO>> GetSocialsAsync()
+    public async Task<IEnumerable<Social>> GetSocialsAsync()
     {
         var query = from s in Context.Socials
                     where s.Enabled
                     orderby s.SortOrder
-                    select new SocialDTO
+                    select new Social
                     {
                         Title = s.Title,
                         Link = s.Link,

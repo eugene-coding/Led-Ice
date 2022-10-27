@@ -33,9 +33,9 @@ public sealed class ContactsModel : PageModel, ISeoable
         Socials = default!;
     }
 
-    public PageMetaDTO PageMeta { get; private set; }
-    public LocationDTO Location { get; private set; }
-    public IEnumerable<SocialDTO?> Socials { get; private set; }
+    public PageMeta PageMeta { get; private set; }
+    public Location Location { get; private set; }
+    public IEnumerable<Social?> Socials { get; private set; }
     public IStringLocalizer<ContactsModel> Text { get; private init; }
     public string Seo { get; init; } = "contacts";
 
@@ -43,7 +43,7 @@ public sealed class ContactsModel : PageModel, ISeoable
     {
         PageMeta = await _pageMetaService.GetPageMetaAsync(this) ?? new();
         Location = await _locationService.GetFirstLocationAsync() ?? new();
-        Socials = await _socialService.GetSocialsAsync() ?? Enumerable.Empty<SocialDTO>();
+        Socials = await _socialService.GetSocialsAsync() ?? Enumerable.Empty<Social>();
 
         InitializeViewData();
     }

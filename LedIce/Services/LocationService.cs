@@ -11,10 +11,10 @@ public sealed class LocationService : Service
     {
     }
 
-    public async Task<LocationDTO?> GetFirstLocationAsync()
+    public async Task<Location?> GetFirstLocationAsync()
     {
         var query = from l in Context.Locations
-                    select new LocationDTO
+                    select new Location
                     {
                         City = l.City,
                         Description = l.Description,

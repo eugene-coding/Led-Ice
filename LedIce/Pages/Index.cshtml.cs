@@ -33,9 +33,9 @@ public sealed class IndexModel : PageModel, ISeoable
         Managers = default!;
     }
 
-    public PageMetaDTO PageMeta { get; private set; }
-    public IEnumerable<SlideDTO> Slides { get; private set; }
-    public IEnumerable<ManagerDTO> Managers { get; private set; }
+    public PageMeta PageMeta { get; private set; }
+    public IEnumerable<Slide> Slides { get; private set; }
+    public IEnumerable<Manager> Managers { get; private set; }
     public IStringLocalizer<IndexModel> Text { get; private init; }
     public string Seo { get; init; } = string.Empty;
 
