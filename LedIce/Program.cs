@@ -1,6 +1,5 @@
 using LedIce.Data;
-using LedIce.Services.Implementations;
-using LedIce.Services.Interfaces;
+using LedIce.Services;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -33,11 +32,11 @@ services.AddDbContext<Context>(options =>
         });
 });
 
-services.AddScoped<IPageMetaService, PageMetaService>();
-services.AddScoped<ILocationService, LocationService>();
-services.AddScoped<ISlideService, SlideService>();
-services.AddScoped<IManagerService, ManagerService>();
-services.AddScoped<ISocialService, SocialService>();
+services.AddScoped<PageMetaService>();
+services.AddScoped<LocationService>();
+services.AddScoped<SlideService>();
+services.AddScoped<ManagerService>();
+services.AddScoped<SocialService>();
 
 services.AddRouting(options =>
 {

@@ -1,12 +1,11 @@
 ﻿using LedIce.Data;
 using LedIce.Data.DTO;
-using LedIce.Services.Interfaces;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LedIce.Services.Implementations;
+namespace LedIce.Services;
 
-internal sealed class SlideService : Service, ISlideService
+public sealed class SlideService : Service
 {
     public SlideService(Context context) : base(context)
     {

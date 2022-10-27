@@ -1,13 +1,12 @@
 ﻿using LedIce.Data;
 using LedIce.Data.DTO;
 using LedIce.Interfaces;
-using LedIce.Services.Interfaces;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LedIce.Services.Implementations;
+namespace LedIce.Services;
 
-internal sealed class PageMetaService : Service, IPageMetaService
+public sealed class PageMetaService : Service
 {
     public PageMetaService(Context context) : base(context)
     {

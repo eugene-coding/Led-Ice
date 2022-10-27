@@ -2,7 +2,7 @@
 
 namespace LedIce.Services;
 
-internal abstract class Service
+public abstract class Service
 {
     public Service(Context context)
     {

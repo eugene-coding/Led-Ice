@@ -1,7 +1,7 @@
 ﻿using LedIce.Data.DTO;
 using LedIce.Extensions;
 using LedIce.Interfaces;
-using LedIce.Services.Interfaces;
+using LedIce.Services;
 
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Localization;
@@ -11,15 +11,15 @@ namespace LedIce.Pages;
 public sealed class IndexModel : PageModel, ISeoable
 {
     private readonly LinkGenerator _linkGenerator;
-    private readonly IPageMetaService _pageMetaService;
-    private readonly ISlideService _slideService;
-    private readonly IManagerService _managerService;
+    private readonly PageMetaService _pageMetaService;
+    private readonly SlideService _slideService;
+    private readonly ManagerService _managerService;
 
     public IndexModel(
         LinkGenerator linkGenerator, 
-        IPageMetaService pageMetaService, 
-        ISlideService slideService, 
-        IManagerService managerService, 
+        PageMetaService pageMetaService, 
+        SlideService slideService, 
+        ManagerService managerService, 
         IStringLocalizer<IndexModel> text)
     {
         _linkGenerator = linkGenerator;

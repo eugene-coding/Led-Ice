@@ -1,12 +1,11 @@
 ﻿using LedIce.Data;
 using LedIce.Data.DTO;
-using LedIce.Services.Interfaces;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LedIce.Services.Implementations;
+namespace LedIce.Services;
 
-internal sealed class ManagerService : Service, IManagerService
+public sealed class ManagerService : Service
 {
     public ManagerService(Context context) : base(context)
     {

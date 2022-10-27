@@ -1,12 +1,11 @@
 ﻿using LedIce.Data;
 using LedIce.Data.DTO;
-using LedIce.Services.Interfaces;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace LedIce.Services.Implementations;
+namespace LedIce.Services;
 
-internal sealed class SocialService : Service, ISocialService
+public sealed class SocialService : Service
 {
     public SocialService(Context context) : base(context)
     {

@@ -1,7 +1,7 @@
 using LedIce.Data.DTO;
 using LedIce.Extensions;
 using LedIce.Interfaces;
-using LedIce.Services.Interfaces;
+using LedIce.Services;
 
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Localization;
@@ -11,15 +11,15 @@ namespace LedIce.Pages;
 public sealed class ContactsModel : PageModel, ISeoable
 {
     private readonly LinkGenerator _linkGenerator;
-    private readonly IPageMetaService _pageMetaService;
-    private readonly ILocationService _locationService;
-    private readonly ISocialService _socialService;
+    private readonly PageMetaService _pageMetaService;
+    private readonly LocationService _locationService;
+    private readonly SocialService _socialService;
 
     public ContactsModel(
         LinkGenerator linkGenerator, 
-        IPageMetaService pageMetaService, 
-        ILocationService service,
-        ISocialService socialService,
+        PageMetaService pageMetaService, 
+        LocationService service,
+        SocialService socialService,
         IStringLocalizer<ContactsModel> text)
     {
         _linkGenerator = linkGenerator;
