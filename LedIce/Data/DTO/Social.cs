@@ -1,4 +1,4 @@
-﻿namespace LedIce.Data.DTO;
+﻿namespace LedIce.DTO;
 
 public class Social
 {

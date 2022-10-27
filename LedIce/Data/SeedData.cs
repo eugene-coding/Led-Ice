@@ -1,4 +1,4 @@
-﻿using LedIce.Data.Models;
+﻿using LedIce.Models;
 
 using Microsoft.EntityFrameworkCore;
 

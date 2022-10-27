@@ -1,5 +1,5 @@
 ﻿using LedIce.Data;
-using LedIce.Data.DTO;
+using LedIce.DTO;
 
 using Microsoft.EntityFrameworkCore;
 

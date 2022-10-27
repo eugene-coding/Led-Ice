@@ -1,4 +1,4 @@
-﻿using LedIce.Data.DTO;
+﻿using LedIce.DTO;
 using LedIce.Extensions;
 using LedIce.Interfaces;
 using LedIce.Services;

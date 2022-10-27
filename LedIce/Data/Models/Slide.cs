@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LedIce.Data.Models;
+namespace LedIce.Models;
 
 public class Slide
 {
