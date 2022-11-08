@@ -47,18 +47,6 @@ h1, h2, h3,
     text-transform: uppercase;
 }
 
-.header .header_nav {
-    margin-bottom: 80px;
-}
-
-.header_fixed .header__nav {
-    margin-bottom: 0;
-}
-
-.header_fixed .header__wrapper {
-    position: fixed;
-}
-
 .slide_white * {
     color: var(--background-color);
 }

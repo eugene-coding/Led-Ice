@@ -1,21 +1,9 @@
-﻿<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <partial name="_Head" />
-    <title>@ViewData["Title"] | LedIce</title>
-    <link rel="canonical" href="@ViewData["Canonical"]" />
-    <meta name="description" content="@ViewData["Description"]" />
-    <meta name="keywords" content="@ViewData["Keyword"]" />
-</head>
+﻿@{
+    Layout = "_LayoutBase";
+}
 
-<body itemscope itemtype="https://schema.org/LocalBusiness">
+<component type="typeof(Header)" render-mode="Static" param-fixed=true />
 
-    <header class="header_fixed">
-        <partial name="_HeaderContent" />
-    </header>
-
-    <main>
-        @RenderBody()
-    </main>
-</body>
-</html>
+<main>
+    @RenderBody()
+</main>
