@@ -12,6 +12,8 @@ public partial class Managers
     [Inject]
     private ManagerService Service { get; init; } = default!;
 
+    public IEnumerable<Manager> Items { get; private set; } = Enumerable.Empty<Manager>();
+
     protected override async Task OnParametersSetAsync()
     {
         _managers = await Service.GetManagersAsync();
