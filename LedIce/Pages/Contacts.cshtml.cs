@@ -14,7 +14,6 @@ public sealed class ContactsModel : PageModel, ISeoable
     private readonly PageMetaService _pageMetaService;
     private readonly LocationService _locationService;
     
-
     public ContactsModel(
         LinkGenerator linkGenerator, 
         PageMetaService pageMetaService, 
