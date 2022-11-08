@@ -1,0 +1,13 @@
+﻿@if (_socials.Any())
+{
+    <ul class="socials">
+        @foreach (var social in _socials)
+        {
+            <li>
+                <a class="social" href="@social.Link" target="_blank" title="@social.Title">
+                    <i class="fa-brands fa-@social.IconClass fa-xl"></i>
+                </a>
+            </li>
+        }
+    </ul>
+}
