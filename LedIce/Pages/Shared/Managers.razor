@@ -1,0 +1,19 @@
+﻿@if (Items.Any())
+{
+    <ul class="managers">
+        @foreach (var manager in Items)
+        {
+            <li>
+                <article class="manager">
+                    <header>
+                        <span class="manager__city">@manager.City</span>
+                        <h3 class="manager__name">@manager.Name</h3>
+                    </header>
+
+                    <a class="manager__contact" href="tel:@manager.Phone">@manager.Phone</a>
+                    <a class="manager__contact" href="mailto:@manager.Email">@manager.Email</a>
+                </article>
+            </li>
+        }
+    </ul>
+}

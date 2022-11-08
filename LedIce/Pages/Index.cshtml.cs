@@ -13,29 +13,24 @@ public sealed class IndexModel : PageModel, ISeoable
     private readonly LinkGenerator _linkGenerator;
     private readonly PageMetaService _pageMetaService;
     private readonly SlideService _slideService;
-    private readonly ManagerService _managerService;
 
     public IndexModel(
-        LinkGenerator linkGenerator, 
-        PageMetaService pageMetaService, 
-        SlideService slideService, 
-        ManagerService managerService, 
+        LinkGenerator linkGenerator,
+        PageMetaService pageMetaService,
+        SlideService slideService,
         IStringLocalizer<IndexModel> text)
     {
         _linkGenerator = linkGenerator;
         _pageMetaService = pageMetaService;
         _slideService = slideService;
-        _managerService = managerService;
 
         Text = text;
         PageMeta = default!;
         Slides = default!;
-        Managers = default!;
     }
 
     public PageMeta PageMeta { get; private set; }
     public IEnumerable<Slide> Slides { get; private set; }
-    public IEnumerable<Manager> Managers { get; private set; }
     public IStringLocalizer<IndexModel> Text { get; private init; }
     public string Seo { get; init; } = string.Empty;
 
@@ -43,7 +38,6 @@ public sealed class IndexModel : PageModel, ISeoable
     {
         PageMeta = await _pageMetaService.GetPageMetaAsync(this) ?? new();
         Slides = await _slideService.GetSlidesAsync();
-        Managers = await _managerService.GetManagersAsync();
 
         InitializeViewData();
     }
