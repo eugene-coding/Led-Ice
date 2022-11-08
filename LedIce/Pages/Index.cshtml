@@ -1,4 +1,5 @@
 ﻿@page
+@using LedIce.Pages.Shared
 @model IndexModel
 
 <div class="slide slide_main">
@@ -38,7 +39,7 @@
             </div>
 
             <div class="offset-1 col text-end">
-                <partial name="_Managers" model="Model.Managers" />
+                <component type="typeof(Managers)" render-mode="Static" />
             </div>
         </div>
     </div>

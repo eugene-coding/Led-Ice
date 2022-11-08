@@ -1,0 +1,20 @@
+﻿.managers {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.manager {
+    margin-bottom: 30px
+}
+
+.manager__name {
+    font-size: 60px
+}
+
+.manager__contact {
+    display: inline-block;
+    font-size: 32px;
+    line-height: initial;
+    margin-bottom: 10px;
+}
