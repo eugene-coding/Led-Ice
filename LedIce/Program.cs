@@ -3,79 +3,118 @@ using LedIce.Services;
 
 using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
-var services = builder.Services;
-
-services.AddRazorPages();
-
-services.AddResponseCompression(options =>
+internal static class Program
 {
-    options.EnableForHttps = true;
-});
+    private static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+        builder.ConfigureServices();
 
-services.AddResponseCaching();
+        var app = builder.Build();
+        app.ConfigurePipeline();
 
-services.AddLocalization();
+        app.Run();
+    }
 
-services.AddDbContext<Context>(options =>
-{
-    var connectionString = builder.Configuration.GetConnectionString("Database");
-    var serverVersion = ServerVersion.AutoDetect(connectionString);
+    private static void ConfigureServices(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddRazorPages();
 
-    options
-        .UseLazyLoadingProxies()
-        .UseMySql(connectionString, serverVersion, options =>
-        {
-            options
-                .EnableRetryOnFailure()
-                .UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
-        });
-});
+        builder.Services.ConfigureResponseCompression();
+        builder.Services.AddResponseCaching();
 
-services.AddScoped<PageMetaService>();
-services.AddScoped<LocationService>();
-services.AddScoped<SlideService>();
-services.AddScoped<ManagerService>();
-services.AddScoped<SocialService>();
+        builder.Services.AddLocalization();
 
-services.AddRouting(options =>
-{
-    options.LowercaseUrls = true;
-});
+        builder.ConfigureDbContext();
+        builder.Services.AddCustomServices();
 
-var app = builder.Build();
+        builder.Services.ConfigureRouting();
+    }
 
+    private static void ConfigurePipeline(this WebApplication app)
+    {
 #if DEBUG
-using (var scope = app.Services.CreateScope())
-{
-    var serviceProvider = scope.ServiceProvider;
-
-    SeedData.Initialize(serviceProvider);
-}
+        app.SeedDatabase();
 #endif
 
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error");
-    app.UseHsts();
-}
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseExceptionHandler("/Error");
+            app.UseHsts();
+        }
 
-app.UseHttpsRedirection();
+        app.UseHttpsRedirection();
 
-app.UseStaticFiles(new StaticFileOptions
-{
-    OnPrepareResponse = context =>
-    {
-        context.Context.Response.Headers.Add("cache-control", "public,max-age=31536000");
+        app.ConfigureStaticFiles();
+
+        app.UseRouting();
+        app.UseAuthorization();
+
+        app.UseResponseCompression();
+        app.UseResponseCaching();
+
+        app.MapRazorPages();
     }
-});
 
-app.UseRouting();
+    private static void ConfigureResponseCompression(this IServiceCollection services)
+    {
+        services.AddResponseCompression(options =>
+        {
+            options.EnableForHttps = true;
+        });
+    }
 
-app.UseAuthorization();
+    private static void ConfigureDbContext(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddDbContext<Context>(options =>
+        {
+            var connectionString = builder.Configuration["ConnectionString"];
+            var serverVersion = ServerVersion.AutoDetect(connectionString);
 
-app.UseResponseCompression();
-app.UseResponseCaching();
-app.MapRazorPages();
+            options
+                .UseLazyLoadingProxies()
+                .UseMySql(connectionString, serverVersion, options =>
+                {
+                    options
+                        .EnableRetryOnFailure()
+                        .UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
+                });
+        });
+    }
 
-app.Run();
+    private static void AddCustomServices(this IServiceCollection services)
+    {
+        services.AddScoped<PageMetaService>();
+        services.AddScoped<LocationService>();
+        services.AddScoped<SlideService>();
+        services.AddScoped<ManagerService>();
+        services.AddScoped<SocialService>();
+    }
+
+    private static void ConfigureRouting(this IServiceCollection services)
+    {
+        services.AddRouting(options =>
+        {
+            options.LowercaseUrls = true;
+        });
+    }
+
+    private static void SeedDatabase(this WebApplication app)
+    {
+        using var scope = app.Services.CreateScope();
+        var serviceProvider = scope.ServiceProvider;
+
+        SeedData.Initialize(serviceProvider);
+    }
+
+    private static void ConfigureStaticFiles(this WebApplication app)
+    {
+        app.UseStaticFiles(new StaticFileOptions
+        {
+            OnPrepareResponse = context =>
+            {
+                context.Context.Response.Headers.Add("cache-control", "public,max-age=31536000");
+            }
+        });
+    }
+}
