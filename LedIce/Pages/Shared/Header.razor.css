@@ -1,25 +1,20 @@
-﻿.header_nav {
-    margin-bottom: 80px;
-    width: 100%;
-    z-index: 10;
-}
-
-.header__wrapper {
+﻿.header__nav {
     display: flex;
     justify-content: center;
     background-color: #333333f7;
+    margin-bottom: 50px;
     width: 100%;
-    z-index: 100
+    z-index: 100;
 }
 
-.header_fixed .header__wrapper {
+.header_fixed .header__nav {
     position: fixed;
 }
 
 .header__container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-top: 15px;
     padding-bottom: 15px;
-    align-items: center;
 }
