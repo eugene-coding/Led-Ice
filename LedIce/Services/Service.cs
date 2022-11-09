@@ -9,5 +9,5 @@ public abstract class Service
         Context = context;
     }
 
-    protected Context Context { get; init; }
+    protected Context Context { get; private init; }
 }
