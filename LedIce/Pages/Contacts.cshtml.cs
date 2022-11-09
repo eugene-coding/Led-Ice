@@ -11,32 +11,32 @@ namespace LedIce.Pages;
 public sealed class ContactsModel : PageModel, ISeoable
 {
     private readonly LinkGenerator _linkGenerator;
-    private readonly PageMetaService _pageMetaService;
+    private readonly MetaService _metaService;
     private readonly LocationService _locationService;
     
     public ContactsModel(
         LinkGenerator linkGenerator, 
-        PageMetaService pageMetaService, 
+        MetaService metaService, 
         LocationService service,
         IStringLocalizer<ContactsModel> text)
     {
         _linkGenerator = linkGenerator;
-        _pageMetaService = pageMetaService;
+        _metaService = metaService;
         _locationService = service;
-
+  
         Text = text;
-        PageMeta = default!;
+        Meta = default!;
         Location = default!;
     }
 
-    public PageMeta PageMeta { get; private set; }
+    public Meta Meta { get; private set; }
     public Location Location { get; private set; }
     public IStringLocalizer<ContactsModel> Text { get; private init; }
     public string Seo { get; init; } = "contacts";
 
     public async Task OnGetAsync()
     {
-        PageMeta = await _pageMetaService.GetPageMetaAsync(this) ?? new();
+        Meta = await _metaService.GetMetaAsync(this) ?? new();
         Location = await _locationService.GetFirstLocationAsync() ?? new();
 
         InitializeViewData();
@@ -44,7 +44,7 @@ public sealed class ContactsModel : PageModel, ISeoable
 
     private void InitializeViewData()
     {
-        ViewData.SetMeta(PageMeta);
+        ViewData.SetMeta(Meta);
         ViewData["Canonical"] = _linkGenerator.GetPathByPage("/Contacts");
     }
 }

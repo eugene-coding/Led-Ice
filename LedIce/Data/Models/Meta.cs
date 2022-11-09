@@ -2,7 +2,7 @@
 
 namespace LedIce.Models;
 
-public class PageMeta
+public class Meta
 {
     [Key]
     public string Seo { get; set; } = string.Empty;
@@ -11,5 +11,5 @@ public class PageMeta
     public string Title { get; set; } = string.Empty;
 
     public string Description { get; set; } = string.Empty;
-    public string? Keyword { get; set; }
+    public string? Keywords { get; set; }
 }

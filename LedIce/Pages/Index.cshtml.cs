@@ -11,32 +11,32 @@ namespace LedIce.Pages;
 public sealed class IndexModel : PageModel, ISeoable
 {
     private readonly LinkGenerator _linkGenerator;
-    private readonly PageMetaService _pageMetaService;
+    private readonly MetaService _metaService;
     private readonly SlideService _slideService;
 
     public IndexModel(
         LinkGenerator linkGenerator,
-        PageMetaService pageMetaService,
+        MetaService metaService,
         SlideService slideService,
         IStringLocalizer<IndexModel> text)
     {
         _linkGenerator = linkGenerator;
-        _pageMetaService = pageMetaService;
+        _metaService = metaService;
         _slideService = slideService;
 
         Text = text;
-        PageMeta = default!;
+        Meta = default!;
         Slides = default!;
     }
 
-    public PageMeta PageMeta { get; private set; }
+    public Meta Meta { get; private set; }
     public IEnumerable<Slide> Slides { get; private set; }
     public IStringLocalizer<IndexModel> Text { get; private init; }
     public string Seo { get; init; } = string.Empty;
 
     public async Task OnGetAsync()
     {
-        PageMeta = await _pageMetaService.GetPageMetaAsync(this) ?? new();
+        Meta = await _metaService.GetMetaAsync(this) ?? new();
         Slides = await _slideService.GetSlidesAsync();
 
         InitializeViewData();
@@ -44,7 +44,7 @@ public sealed class IndexModel : PageModel, ISeoable
 
     private void InitializeViewData()
     {
-        ViewData.SetMeta(PageMeta);
+        ViewData.SetMeta(Meta);
         ViewData["Canonical"] = _linkGenerator.GetPathByPage("/Index");
     }
 }

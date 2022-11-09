@@ -84,7 +84,7 @@ internal static class Program
 
     private static void AddCustomServices(this IServiceCollection services)
     {
-        services.AddScoped<PageMetaService>();
+        services.AddScoped<MetaService>();
         services.AddScoped<LocationService>();
         services.AddScoped<SlideService>();
         services.AddScoped<ManagerService>();

@@ -6,21 +6,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LedIce.Services;
 
-public sealed class PageMetaService : Service
+public sealed class MetaService : Service
 {
-    public PageMetaService(Context context) : base(context)
+    public MetaService(Context context) : base(context)
     {
     }
 
-    public async Task<PageMeta?> GetPageMetaAsync(ISeoable page)
+    public async Task<Meta?> GetMetaAsync(ISeoable page)
     {
-        var query = from p in Context.PageMetas
+        var query = from p in Context.Metas
                     where p.Seo == page.Seo
-                    select new PageMeta
+                    select new Meta
                     {
                         Title = p.Title,
                         Description = p.Description,
-                        Keyword = p.Keyword
+                        Keywords = p.Keywords
                     };
 
         var result = await query

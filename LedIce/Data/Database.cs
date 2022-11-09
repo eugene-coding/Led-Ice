@@ -1,4 +1,4 @@
-﻿using LedIce.Data.Models;
+﻿using LedIce.Models;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +10,7 @@ public sealed class Context : DbContext
     {
     }
 
-    public DbSet<PageMeta> PageMetas => Set<PageMeta>();
+    public DbSet<Meta> Metas => Set<Meta>();
     public DbSet<Location> Locations => Set<Location>();
     public DbSet<Slide> Slides => Set<Slide>();
     public DbSet<Manager> Managers => Set<Manager>();
