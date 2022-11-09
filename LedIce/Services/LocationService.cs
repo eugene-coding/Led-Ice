@@ -11,7 +11,7 @@ public sealed class LocationService : Service
     {
     }
 
-    public async Task<Location?> GetFirstLocationAsync()
+    public async Task<Location> GetFirstLocationAsync()
     {
         var query = from l in Context.Locations
                     select new Location
@@ -30,6 +30,6 @@ public sealed class LocationService : Service
             .AsNoTracking()
             .FirstOrDefaultAsync();
 
-        return result;
+        return result ?? new();
     }
 }

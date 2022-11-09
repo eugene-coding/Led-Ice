@@ -1,6 +1,5 @@
 ﻿using LedIce.Data;
 using LedIce.DTO;
-using LedIce.Interfaces;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -12,10 +11,10 @@ public sealed class MetaService : Service
     {
     }
 
-    public async Task<Meta?> GetMetaAsync(ISeoable page)
+    public async Task<Meta> GetMetaAsync(string seo)
     {
         var query = from p in Context.Metas
-                    where p.Seo == page.Seo
+                    where p.Seo == seo
                     select new Meta
                     {
                         Title = p.Title,
@@ -27,6 +26,6 @@ public sealed class MetaService : Service
             .AsNoTracking()
             .SingleOrDefaultAsync();
 
-        return result;
+        return result ?? new();
     }
 }
